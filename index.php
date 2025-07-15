@@ -1,11 +1,9 @@
 <?php
-// Save submitted text
 if ($_SERVER["REQUEST_METHOD"] === "POST" && !empty($_POST["text"])) {
     $text = trim($_POST["text"]);
     file_put_contents("data.txt", $text . PHP_EOL, FILE_APPEND);
 }
 
-// Read saved data
 $items = file_exists("data.txt") ? file("data.txt", FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) : [];
 ?>
 
